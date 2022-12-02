@@ -1,0 +1,16 @@
+[Unit]
+Description=To run the node application so that load balancer can access
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+ExecStart=/home/user1/.volta/bin/node /home/user1/2420-assign-two/src/index.js
+User=senp41
+Group=senp41
+Restart=always
+RestartSec=10
+TimeoutStopSec=90
+SyslogIdentifier=hello_web
+
+[Install]
+WantedBy=multi-user.target
